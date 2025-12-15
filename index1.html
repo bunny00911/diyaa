@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mrs Chauhan ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif}
+body{
+  background:radial-gradient(circle at top,#ff4fa3,#0b0015);
+  color:#fff;
+  overflow:hidden;
+}
+section{
+  width:100vw;
+  height:100vh;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+  padding:30px;
+}
+section.active{display:flex}
+h1{font-size:2.2rem;margin-bottom:15px}
+p{font-size:1.1rem;line-height:1.6;max-width:500px}
+
+.btn{
+  margin-top:30px;
+  padding:14px 28px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#ff2f92,#ff6fb1);
+  color:#fff;
+  font-size:1rem;
+  cursor:pointer;
+  box-shadow:0 0 20px #ff4fa3;
+}
+
+.photo{
+  width:230px;
+  height:300px;
+  border-radius:20px;
+  object-fit:cover;
+  margin-top:20px;
+  box-shadow:0 0 30px #ff4fa3;
+  animation:fadeUp 2s ease forwards;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-top:20px;
+}
+
+.grid img{
+  width:150px;
+  height:200px;
+  border-radius:15px;
+  animation:pop 1.5s ease forwards;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(40px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes pop{
+  from{opacity:0;transform:scale(0.7)}
+  to{opacity:1;transform:scale(1)}
+}
+
+@keyframes type{
+  from{width:0}
+  to{width:100%}
+}
+
+.type{
+  overflow:hidden;
+  white-space:nowrap;
+  border-right:2px solid #fff;
+  width:0;
+  animation:type 4s steps(40,end) forwards;
+}
+
+.heart{
+  position:fixed;
+  color:#ff4fa3;
+  animation:float 6s linear infinite;
+}
+
+@keyframes float{
+  from{transform:translateY(100vh);opacity:1}
+  to{transform:translateY(-10vh);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<section class="active">
+  <h1 class="type">Ye mere dil ki baatein hain 💌</h1>
+  <p>Jo main tumse kabhi properly keh nahi paaya…</p>
+  <button class="btn" onclick="next()">Next ❤️</button>
+</section>
+
+<section>
+  <h1>Tumhari achi baatein ✨</h1>
+  <p>Tumhari smile, tumhari care, tumhara saath…  
+  Tumne meri life ko better bana diya.</p>
+  <button class="btn" onclick="next()">Next 💖</button>
+</section>
+
+<section>
+  <h1>Thank You ❤️</h1>
+  <p>Thank you meri life me aane ke liye.  
+  Tum meri khushi ho, meri duniya ho.</p>
+  <button class="btn" onclick="next()">Next 💫</button>
+</section>
+
+<section>
+  <h1>I Love You ❤️</h1>
+  <img src="pic1.jpg" class="photo">
+  <button class="btn" onclick="next()">Next 💕</button>
+</section>
+
+<section>
+  <h1>❤️ Mrs Chauhan ❤️</h1>
+  <p>I love you so much</p>
+  <img src="pic2.jpg" class="photo" style="animation:fadeUp 2s ease, pop 1.5s">
+  <button class="btn" onclick="next()">Next 💍</button>
+</section>
+
+<section>
+  <h1>I Love You My World 🌍</h1>
+  <div class="grid">
+    <img src="pic1.jpg">
+    <img src="pic2.jpg">
+    <img src="pic3.jpg">
+    <img src="pic4.jpg">
+  </div>
+  <button class="btn" onclick="next()">Forever ♾️</button>
+</section>
+
+<section>
+  <h1>Forever Us ❤️</h1>
+  <p>Chahe kuch bhi ho… main hamesha tumhara rahunga.</p>
+  <button class="btn" onclick="window.open('https://youtu.be/8SYPKQMW_2Q')">
+    Play Song 🎵
+  </button>
+</section>
+
+<script>
+let i=0;
+const pages=document.querySelectorAll("section");
+function next(){
+  pages[i].classList.remove("active");
+  i++;
+  pages[i].classList.add("active");
+}
+
+// hearts
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤️";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=Math.random()*20+10+"px";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),6000);
+},300);
+</script>
+
+</body>
+</html>
